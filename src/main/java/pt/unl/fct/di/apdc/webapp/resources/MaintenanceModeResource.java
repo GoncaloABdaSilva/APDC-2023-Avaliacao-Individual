@@ -102,7 +102,7 @@ public class MaintenanceModeResource {
 				return Response.ok("{}").entity("Maintenance mode has ended.").build();
 			}
 			
-			if (user.getString("role").equals(SU) || user.getString("role").equals(GS)) {
+			if (user.getString("role").equals(SU) ) {
 
 				Query<Entity> query = Query.newEntityQueryBuilder().setKind("User")
 						.setFilter(PropertyFilter.eq("role", USER)).build();

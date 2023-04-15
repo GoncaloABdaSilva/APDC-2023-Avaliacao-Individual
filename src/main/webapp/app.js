@@ -132,50 +132,52 @@ function doLogin() {
 function doMainPage() {
 	resetRightBox();
 	var username = localStorage.getItem("sessionUser");
-	var jsonData = {
-		"username": username
-	}
-	var req = new XMLHttpRequest();
+	if (username != null) {
+		var jsonData = {
+			"username": username
+		}
+		var req = new XMLHttpRequest();
 
-	req.open("POST", "/rest/listSelf/v1", true);
-	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-	req.send(JSON.stringify(jsonData));
+		req.open("POST", "/rest/listSelf/v1", true);
+		req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		req.send(JSON.stringify(jsonData));
 
-	req.onreadystatechange = function() {
-		if (req.readyState == 4) {
-			if (req.status == 200) {
-				document.getElementById("userFullNameDisplay").innerHTML = JSON.parse(req.responseText).fullName;
-				document.getElementById("usernameDisplay").innerHTML = username;
-				document.getElementById("emailDisplay").innerHTML = JSON.parse(req.responseText).email;
-				document.getElementById("phoneNumberDisplay").innerHTML = JSON.parse(req.responseText).telephoneNumber;
-				document.getElementById("userProfilePic").src = "https://storage.googleapis.com/lofty-flare-379310.appspot.com/" + localStorage.getItem("sessionUser");
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					document.getElementById("userFullNameDisplay").innerHTML = JSON.parse(req.responseText).fullName;
+					document.getElementById("usernameDisplay").innerHTML = username;
+					document.getElementById("emailDisplay").innerHTML = JSON.parse(req.responseText).email;
+					document.getElementById("phoneNumberDisplay").innerHTML = JSON.parse(req.responseText).telephoneNumber;
+					document.getElementById("userProfilePic").src = "https://storage.googleapis.com/lofty-flare-379310.appspot.com/" + localStorage.getItem("sessionUser");
 
-				switch (localStorage.getItem("sessionRole")) {
-					case "USER":
-						document.getElementById("usernameDisplay").style.backgroundColor = "green";
-						document.getElementById("maintenanceMode").style.display = "none";
-						break;
-					case "GBO":
-						document.getElementById("usernameDisplay").style.backgroundColor = "yellow";
-						document.getElementById("maintenanceMode").style.display = "none";
-						break;
-					case "GA":
-						document.getElementById("usernameDisplay").style.backgroundColor = "blue";
-						document.getElementById("maintenanceMode").style.display = "none";
-						break;
-					case "GS":
-						document.getElementById("usernameDisplay").style.backgroundColor = "orange";
-						document.getElementById("maintenanceMode").style.display = "inline";
-						break;
-					case "SU":
-						document.getElementById("usernameDisplay").style.backgroundColor = "red";
-						document.getElementById("maintenanceMode").style.display = "inline";
-						break;
+					switch (localStorage.getItem("sessionRole")) {
+						case "USER":
+							document.getElementById("usernameDisplay").style.backgroundColor = "green";
+							document.getElementById("maintenanceMode").style.display = "none";
+							break;
+						case "GBO":
+							document.getElementById("usernameDisplay").style.backgroundColor = "yellow";
+							document.getElementById("maintenanceMode").style.display = "none";
+							break;
+						case "GA":
+							document.getElementById("usernameDisplay").style.backgroundColor = "blue";
+							document.getElementById("maintenanceMode").style.display = "none";
+							break;
+						case "GS":
+							document.getElementById("usernameDisplay").style.backgroundColor = "orange";
+							document.getElementById("maintenanceMode").style.display = "none";
+							break;
+						case "SU":
+							document.getElementById("usernameDisplay").style.backgroundColor = "red";
+							document.getElementById("maintenanceMode").style.display = "inline";
+							break;
 
+					}
 				}
-			}
-			else {
-				alert(req.responseText);
+				else {
+					alert(req.responseText);
+				}
 			}
 		}
 	}
@@ -683,8 +685,8 @@ function doUploadImage() {
 		}
 	}
 	resetRightBox();
-	
-	
-	
-	
+
+
+
+
 }
