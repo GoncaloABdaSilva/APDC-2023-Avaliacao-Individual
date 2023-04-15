@@ -116,14 +116,14 @@ public class ListUserResource {
 			//without breaks between cases
 			case SU:
 				query = Query.newEntityQueryBuilder().setKind("User")
-						.setFilter(PropertyFilter.eq("role", GS)).addOrderBy(OrderBy.asc("username"))
+						.setFilter(PropertyFilter.eq("role", GS))
 						.build();
 
 				queryResults = datastore.run(query);
 				doQuery(queryResults, userList);
 				
 				query = Query.newEntityQueryBuilder().setKind("User")
-						.setFilter(PropertyFilter.eq("role", GA)).addOrderBy(OrderBy.asc("username"))
+						.setFilter(PropertyFilter.eq("role", GA))
 						.build();
 				
 				queryResults = datastore.run(query);
@@ -131,7 +131,7 @@ public class ListUserResource {
 				
 			case GS:
 				query = Query.newEntityQueryBuilder().setKind("User")
-						.setFilter(PropertyFilter.eq("role", GBO)).addOrderBy(OrderBy.asc("username"))
+						.setFilter(PropertyFilter.eq("role", GBO))
 						.build();
 
 				queryResults = datastore.run(query);
@@ -139,7 +139,7 @@ public class ListUserResource {
 
 			case GBO:
 				query = Query.newEntityQueryBuilder().setKind("User")
-						.setFilter(PropertyFilter.eq("role", USER)).addOrderBy(OrderBy.asc("username"))
+						.setFilter(PropertyFilter.eq("role", USER))
 						.build();
 
 				queryResults = datastore.run(query);
