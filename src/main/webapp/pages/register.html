@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>ADC Projeto Individual</title>
+    <script src="../app.js"></script>
+    <style>
+    @font-face {
+    font-family: "Proxima Nova";
+    src: url('../Font/Duplet-Light.otf')format('opentype');
+    font-weight:lighter;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0.5px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Proxima Nova";
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    background-image: url('../img/adcBackgroudImage.jpg');
+    background-position: top;
+    background-size: cover;
+}
+
+.box
+{
+    position: relative;
+    width: 400px;
+    height: 920px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.box form{
+    position: absolute;
+    inset: 4px;
+    background: rgba(169, 169, 169, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box form h2{
+    text-align: center;
+    margin-top: -5px;
+}
+
+.box form .inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 2.5px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    color: #000000;
+    font-size: large;
+}
+
+.box form .Login{
+	margin-top: -5px;
+	text-align: center;
+ 	display: flex;
+    flex-direction: column;
+}
+
+.box form button{
+	margin-top: 10px;
+	font-size: large;
+	border-radius: 8px;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <div class = "box">
+	<form id="registerForm">
+       	<h2>Register</h2>
+       	<label for="username">Username *</label>
+       	<input type="text" id="username" name="username" required>
+       	<label for="email">Email *</label>
+       	<input type="text" id="email" name="email" required>
+       	<label for="fullName">Full Name *</label>
+       	<input type="text" id="fullName" name="fullName" required>
+       	<label for="password">Password *</label>
+       	<input type="password" id="password" name="password" required>
+       	<label for="confirmation">Confirm your password *</label>
+       	<input type="password" id="confirmation" name="confirmation" required>
+       	 <label for="profileVisibility">Privacy</label>
+        <select id="profileVisibility">
+        	<option value="PRIVATE">Private</option>
+            <option value="PUBLIC">Public</option>
+        </select>
+       	<label for="telephoneNumber">Telephone number</label>
+       	<input type="text" id="telephoneNumber" name="telephoneNumber" >
+       	<label for="mobilePhoneNumber">Mobile phone number</label>
+       	<input type="text" id="mobilePhoneNumber" name="mobilePhone" >
+       	<label for="occupation">Occupation</label>
+       	<input type="text" id="occupation" name="occupation" >
+       	<label for="workPlace">Work place</label>
+       	<input type="text" id="workPlace" name="workPlace" >
+       	<label for="address">Address</label>
+       	<input type="text" id="address" name="address" >
+       	<label for="compAddress">Complementary address</label>
+       	<input type="text" id="compAddress" name="compAddress" >
+       	<label for="zip">ZIP</label>
+       	<input type="text" id="zip" name="zip" >
+       	<label for="nif">NIF</label>
+       	<input type="text" id="nif" name="nif" >
+		<button name="regist" type="button" onClick="doRegister()">Regist</button>
+       	<br><br>
+       	Already registered.
+       <div class = "Login">
+			<button name="login" onClick="window.location.href='../index.html'">Login</button>
+		</div>	
+       	<br>
+       	<h6>Parameters with " * " are of manditory fillment.</h6>
+      </form>
+      
+      
+    </div>
+    
+  </body>
+</html>

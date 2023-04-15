@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>ADC Projeto Individual</title>
+    <script src="../app.js"></script>
+    <style>
+    @font-face {
+    font-family: "Proxima Nova";
+    src: url('../Font/Duplet-Light.otf')format('opentype');
+    font-weight:lighter;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0.5px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Proxima Nova";
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    background-image: url('../img/adcBackgroudImage.jpg');
+    background-position: top;
+    background-size: cover;
+}
+
+.box
+{
+    position: relative;
+    width: 400px;
+    height: 550px;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+.box form{
+    position: absolute;
+    inset: 4px;
+    background: rgba(169, 169, 169, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box form h1{
+    text-align: center;
+    margin-top: -25px;
+}
+
+.box form button{
+	margin-top: 10px;
+	font-size: larger;
+	border-radius: 8px;
+}
+
+.leftBox {
+	position: relative;
+    width: 400px;
+    height: 550px;
+    border-radius: 5px;
+    font-size: larger;
+    left: -50px;
+}
+
+.leftBox form{
+    position: absolute;
+    inset: 4px;
+    background: rgba(169, 169, 169, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.leftBox #usernameDisplay{
+	border:2px solid black;
+  	border-radius: 10px;
+}
+
+.leftBox #maintenanceMode{
+	display: none;
+}
+
+.leftBox #userProfilePic{
+	width: 250px;
+	height: 250px;
+	border: 1px solid black;
+	position: relative;
+	left: 15px;
+}
+
+.rightBox {
+	position: relative;
+    width: 400px;
+    height: 550px;
+    border-radius: 5px;
+    font-size: larger;
+    right: -50px;
+}
+
+.rightBox form{
+    position: absolute;
+    inset: 4px;
+    background: rgba(169, 169, 169, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.rightBox #userProfilePicRB{
+	width: 250px;
+	height: 250px;
+	border: 1px solid black;
+	position: relative;
+	left: 15px;
+}
+
+.rightBox #targetUsername{
+	border-radius:8px;
+}
+
+.rightBox #targetUsernameTxt{
+	display: none;
+}
+
+.rightBox #removeBtn{
+	border-radius:8px;
+	font-size:large;
+}
+
+.rightBox #modPwdBtn{
+	border-radius:8px;
+	font-size:large;
+}
+
+.rightBox #modProfPicBtn{
+	border-radius:8px;
+	font-size:large;
+}
+
+.rightBox #oldPwd{
+	border-radius:8px;
+}
+
+.rightBox #newPwd{
+	border-radius:8px;
+}
+
+.rightBox #newPwdConf{
+	border-radius:8px;
+}
+
+.rightBox #targetFullName{
+	border-radius:8px;
+}
+
+.rightBox #targetEmail{
+	border-radius:8px;
+}
+
+.rightBox #targetVisibilitySel{
+	border-radius: 8px;
+}
+
+
+.rightBox #targetTelephone{
+	border-radius:8px;
+}
+
+.rightBox #targetMobilePhone{
+	border-radius:8px;
+}
+
+.rightBox #targetOccupation{
+	border-radius:8px;
+}
+
+.rightBox #targetWorkPlace{
+	border-radius:8px;
+}
+
+.rightBox #targetAddress{
+	border-radius:8px;
+}
+
+.rightBox #targetCompAddress{
+	border-radius:8px;
+}
+
+.rightBox #targetZip{
+	border-radius:8px;
+}
+
+.rightBox #targetNIF{
+	border-radius:8px;
+}
+
+.rightBox #targetRole{
+	border-radius:8px;
+}
+
+.rightBox #targetStateSel{
+	border-radius:8px;
+}
+
+.rightBox #modAttBtn{
+	border-radius:8px;
+	font-size:large;
+}
+
+
+</style>
+   </head>
+   
+     <body onload="doMainPage()">
+     
+     <div class = "leftBox">
+    	<form id = "userDataDisplay">
+    		<img id="userProfilePic"><br><br>
+    		<p id="usernameDisplay"></p>
+    		<p id="userFullNameDisplay"></p>
+    		<p id="emailDisplay"></p>
+    		<p id="phoneNumberDisplay"></p>   	
+    	</form>
+    
+    </div>
+     
+    <div class = "box">
+      <form id="userInForm">
+       <h1>Welcome to my website!</h1>
+       
+       	<button name="profileBtn" type="button" onclick="doProfile()">Profile</button>
+        <button name="remove"type="button"onClick="openRemove()">Remove Profile</button>
+		<button name="list"type="button"onClick="doList()">List Users</button>
+		<button name="profilePicture" type="button" onClick="openProfilePic()">Modify Picture</button>
+		<button name="modifyAtt"type="button"onClick="openModifyAttributes()">Modify Attributes</button>
+		<button name="modifyPwd"type="button"onClick="openModifyPassword()">Modify Password</button>
+		<button name="sessionToken"type="button"onClick="doShowSessionToken()">Show Session Token</button>
+		<button name="maintenanceMode" id = "maintenanceMode" type="button"onClick="doMaintenanceMode()">Maintenance Mode</button>
+		<button name="logout"type="button"onClick="doLogout()">Logout</button>
+       
+		 </form>
+    </div>
+ 
+  
+      
+     <div class = "rightBox">
+    	<form id = "userDataR">
+    		<img id="userProfilePicRB">
+    		<p id="onlyTxtData"></p>
+    		<p id="targetUsernameTxt">Target Username</p>
+    		<input type ="text" id = "targetUsername" name="targetUsername" >
+    		<button name="remove" id="removeBtn"type="button"onClick="doRemove()">Remove</button>
+    		<p id="oldPwdTxt">Old Password</p>
+    		<input type ="password" id = "oldPwd" name = "oldPwd">
+    		<p id="newPwdTxt">New Password</p>
+    		<input type ="password" id = "newPwd" name = "newPwd">
+    		<p id="newPwdConfTxt">Confirm Password</p>
+    		<input type ="password" id = "newPwdConf" name="newPwdConf">
+    		<button name="modifyPassword" id="modPwdBtn"type="button"onClick="doModifyPassword()">Modify Password</button>
+    		<p id ="profilePicTxt">Select new profile picture</p>
+        	<input type="file" name="files"  id="profilePic">
+        	<button name = "modifyProfPic" id="modProfPicBtn"type="button"onClick="doUploadImage()">Upload</button>
+    		<p id="targetVisibilityTxt">Profile Visibility</p>
+    		<select id="targetVisibilitySel">
+    			<option value=""></option>
+        		<option value="PRIVATE">Private</option>
+            	<option value="PUBLIC">Public</option>
+        	</select>
+    		<p id="targetFullNameTxt">Full Name</p>
+   			<input type ="text" id = "targetFullName" name="targetFullName">
+   			<p id="targetEmailTxt">Email</p>
+   			<input type ="text" id = "targetEmail" name="targetEmail">
+   			<p id="targetTelephoneTxt">Telephone Number</p>
+   			<input type ="text" id = "targetTelephone" name="targetTelephone">
+   			<p id="targetMobilePhoneTxt">Mobile phone number</p>
+   			<input type ="text" id = "targetMobilePhone" name="targetMobilePhone">
+   			<p id="targetOccupationTxt">Occupation</p>
+   			<input type ="text" id = "targetOccupation" name="targetOccupation">
+   			<p id="targetWorkPlaceTxt">Work Place</p>
+   			<input type ="text" id = "targetWorkPlace" name="targetWorkPlace">
+   			<p id="targetAddressTxt">Address</p>
+   			<input type ="text" id = "targetAddress" name="targetAddress">
+   			<p id="targetCompAddressTxt">Complementary Address</p>
+   			<input type ="text" id = "targetCompAddress" name="targetCompAddress">
+   			<p id="targetZipTxt">ZIP code</p>
+   			<input type ="text" id = "targetZip" name="targetZip">
+   			<p id="targetNIFTxt">NIF</p>
+   			<input type ="text" id = "targetNIF" name="targetNIF">
+   			<p id="targetRoleTxt">Role</p>
+   			<input type ="text" id = "targetRole" name="targetRole">
+   			<p id="targetStateTxt">State of account</p>
+   			<select id="targetStateSel">
+    			<option value=""></option>
+        		<option value="ACTIVE">Active</option>
+            	<option value="INACTIVE">Not active</option>
+        	</select>
+   			<button name="modifyAttributes" id="modAttBtn"type="button"onClick="doModifyAttributes()">Modify Attributes</button>
+    	</form>
+    
+    </div>
+ 
+ </body>  
+  </html>

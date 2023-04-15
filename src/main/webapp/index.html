@@ -2,25 +2,102 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-    <title>My First Web Aoo</title>
+    <title>ADC Projeto Individual</title>
+    <script src="app.js"></script>
+    <style>
+    @font-face {
+    font-family: "Proxima Nova";
+    src: url('Font/Duplet-Light.otf')format('opentype');
+    font-weight:lighter;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0.5px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Proxima Nova";
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    background-image: url('img/adcBackgroudImage.jpg');
+    background-position: top;
+    background-size: cover;
+    font-size: larger;
+}
+
+.box
+{
+    position: relative;
+    width: 500px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.box form{
+    position: absolute;
+    inset: 4px;
+    background: rgba(169, 169, 169, 0.8);
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box form h2{
+    text-align: center;
+}
+
+.box form .inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 2.5px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    color: #000000;
+}
+
+.box form .Register{
+	margin-top: -5px;
+	text-align: center;
+ 	display: flex;
+    flex-direction: column;
+}
+
+.box form button{
+	margin-top: 10px;
+	font-size: large;
+	border-radius: 8px;
+}
+    
+
+    
+    </style>
   </head>
 
   <body>
-    <h1>Welcome to my simple web application!</h1>
-
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Services:</td>        
-      </tr>
-      <tr>
-        <td><a href='/rest/utils/hello'>Say Hello!</a></td><td>(greetings)</td>
-      </tr>
-      <tr>
-        <td><a href='/rest/utils/time'>What time is it?</a></td><td>(see server time)</td>
-      </tr>
-    </table>
+    <div class = "box">
+      <form id="loginForm">
+       <h2>Log In</h2>
+       <label for="username">Username</label>
+       <input type="text" id="username" name="username" required>
+       <label for="password">Password</label>
+       <input type="password" id="password" name="password" required>
+       <button name="submit"type="button"onClick="doLogin()">Log In</button>
+		<br>
+		 Are you not registered?
+       <div class = "Register">
+			<button name="register" onClick="window.location.href='pages/register.html'">Register</button>
+		</div>	
+		 </form>
+    </div>
+    
   </body>
-  <footer>
-  	Copyright: FCT NOVA 2023
-  </footer>
 </html>
