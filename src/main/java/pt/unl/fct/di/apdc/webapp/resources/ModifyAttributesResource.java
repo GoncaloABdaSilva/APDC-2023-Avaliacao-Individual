@@ -160,11 +160,11 @@ public class ModifyAttributesResource {
 		if (modifierUser.getString("role").equals(SU)) 
 			return true;
 		
-		if (modifierUser.getString("role").equals(GBO) && 
-				(modifiedUser.getString("role").equals(GS) || modifiedUser.getString("role").equals(USER)) )
+		if (modifierUser.getString("role").equals(GS) && 
+				(modifiedUser.getString("role").equals(GBO) || modifiedUser.getString("role").equals(USER)) )
 			return true;
 		
-		if (modifierUser.getString("role").equals(GS) && modifiedUser.getString("role").equals(USER) ) 
+		if (modifierUser.getString("role").equals(GBO) && modifiedUser.getString("role").equals(USER) ) 
 			return true;
 		
 		if (modifierUser.getString("role").equals(USER) && data.modifierUsername.equals(data.modifiedUsername))
