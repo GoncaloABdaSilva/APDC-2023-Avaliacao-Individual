@@ -181,6 +181,10 @@ function doMainPage() {
 			}
 		}
 	}
+	else{
+		alert("No session has been started.");
+		window.location.href = "../index.html";
+	}
 }
 
 function resetRightBox() {
