@@ -1,4 +1,4 @@
-# ADC-Individula Project
+# ADC-Individual Project
 
 This repository has my project from the course ADC, 2022/2023.
 
